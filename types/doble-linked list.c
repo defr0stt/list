@@ -14,10 +14,10 @@ typedef struct Numb_Line
 typedef struct Prev_Next
 {
     Struct_1 data;
-    Prev_Next* prev, * next;          //адреса попереднього та наступного елемента ;          
+    Prev_Next* prev, * next;          //adress of the next element           
 } Struct_2;
 
-Struct_2* start, * finish;           //вказівники на початок та кінець списку
+Struct_2* start, * finish;           //pointers on the start and finish
 char end[] = "#";
 
 
@@ -75,30 +75,30 @@ char* Input(Struct_1* numb_line, int& counter)
     gets_s(temp);
     if (strcmp(temp, end) != 0)
     {
-        numb_line->line = (char*)malloc(strlen(temp) + 1);      //виділення ДП для рядка
+        numb_line->line = (char*)malloc(strlen(temp) + 1);      //dyn memory for line
         strcpy(numb_line->line, temp);
         counter++;
-        rewind(stdin);                  //очищення буферу
+        rewind(stdin);                  //clearing the buffer
     }
     else
-        numb_line->line = NULL;         //кінець рядка
+        numb_line->line = NULL;         //end of the line
     return temp;
 }
 
 void New_Elem(Struct_1 numb)
 {
     Struct_2* elem;
-    Struct_2* position;                                 //вказівники на сам елемент та позицію, куди він має вставитись
-    elem = (Struct_2*)malloc(sizeof(Struct_2));         //виділення ДП для списку
+    Struct_2* position;                                 //position the element where it needs to insert
+    elem = (Struct_2*)malloc(sizeof(Struct_2));         //dyn memory for list
     elem->data = numb;
 
-    if (start == NULL)        //якщо елемент 1 у списку
+    if (start == NULL)        //if elem count =1
     {
         elem->prev = NULL;
         elem->next = NULL;
         start = elem;
         finish = elem;
-        return;             //вихід з функції
+        return;             //go out of a function
     }
     position = elem->next;
     Add(elem, position);
