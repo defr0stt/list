@@ -40,7 +40,8 @@ int main()
     Struct_1 input_info_1;
 
         int count = 1;
-        printf("\n\tEnter your data (# - end of entering) : \n");
+        printf("\n\t--------------------------------------\n\t|         Double-linked list         |\n\t--------------------------------------\n");
+        printf("\n\tEnter your data (# - end of entering) : \n\n");
 
         while (strcmp(Input(&input_info, count), end) != 0)
             New_Elem(input_info);
@@ -56,7 +57,7 @@ int main()
         scanf_s("%d", &count);
         Delete_Elem(count);
 
-        printf("\n\tAfter deleting :\n\n");
+        printf("\n\n\tAfter deleting :\n\n");
         Print();
 
         printf("\n------------------------------------------------------------------------------------------------------------------------");
@@ -70,7 +71,7 @@ int main()
 char* Input(Struct_1* numb_line, int& counter)
 {
     char temp[LEN];
-    printf("Word №%d - ", counter);
+    printf("  Word №%d - ", counter);
     gets_s(temp);
     if (strcmp(temp, end) != 0)
     {
