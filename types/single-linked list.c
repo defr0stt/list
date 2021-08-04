@@ -69,21 +69,21 @@ char* Input(Struct_1* numb_line, int& counter)
     gets_s(temp);
     if (strcmp(temp, end) != 0)
     {
-        numb_line->line = (char*)malloc(strlen(temp) + 1);      //виділення ДП для рядка
+        numb_line->line = (char*)malloc(strlen(temp) + 1);      //dyn memory for line
         strcpy(numb_line->line, temp);
         counter++;
-        rewind(stdin);                  //очищення буферу
+        rewind(stdin);                  //clearing the buffer
     }
     else
-        numb_line->line = NULL;         //кінець рядка
+        numb_line->line = NULL;         //end of the line
     return temp;
 }
 
 void New_Elem(Struct_1 numb)
 {
     Struct_2* elem;
-    Struct_2* position;                                 //вказівники на сам елемент та позицію, куди він має вставитись
-    elem = (Struct_2*)malloc(sizeof(Struct_2));         //виділення ДП для списку
+    Struct_2* position;                                 //position the element where it needs to insert
+    elem = (Struct_2*)malloc(sizeof(Struct_2));         //dyn memory for list
     elem->data = numb;
 
     if (start == NULL)        //якщо елемент 1 у списку
